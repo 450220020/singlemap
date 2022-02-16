@@ -1,0 +1,2 @@
+# singlemap
+rust singlemap
