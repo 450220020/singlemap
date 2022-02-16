@@ -1,10 +1,8 @@
-# singlemap
-rust singlemap 
+extern crate dashmap;
+extern crate once_cell;
+pub mod com;
 
 
-```rust
-#[macro_use]
-extern crate singlemap;
 
 #[test]
 fn test_map(){
@@ -12,4 +10,3 @@ fn test_map(){
     let straa = single_get_unwrap!("a",String);
     println!("rustl:{:?}",straa);
 }
-```
