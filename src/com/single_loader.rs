@@ -1,6 +1,6 @@
 use dashmap::DashMap;
 use once_cell::sync::OnceCell;
-use std::{collections::HashMap};
+use std::collections::HashMap;
 
 type LoaderType = (bool, String, Vec<String>, String,Vec<String>);
 
