@@ -80,7 +80,15 @@ pub fn single_init<'a>(
 pub fn get_idx_val(key:&str)->String{
     let key_idx_max_id = key.to_string()+"_max";
     let key_idx_id = key.to_string()+"_sqe_idx";
-    let max_idx = single_get_unwrap!(&key_idx_max_id,i32);
+    let save_rs = get_map!().get(&key_idx_max_id).unwrap();
+    let max_idx_rs = save_rs.downcast_ref::<i32>().clone();
+    let  max_idx;
+    if max_idx_rs.is_some(){
+        max_idx = *max_idx_rs.unwrap();
+    }else{
+        max_idx = get_map!().get(&key_idx_max_id).unwrap().downcast_ref::<String>().unwrap().parse::<i32>().unwrap();
+       
+    }
     let map_entity = get_map!();
     if map_entity.contains_key(&key_idx_id){
         map_entity.alter(&key_idx_id,  |_, v| {
